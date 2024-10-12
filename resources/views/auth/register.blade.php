@@ -11,9 +11,11 @@
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="/register" method="POST">
+
+            <form action="/register" method="POST" novalidate>
                 @csrf
-                <div class="mb-5">
+
+                <div class="mb-2">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
                         nombre
                     </label>
@@ -21,12 +23,16 @@
                             name="name"
                             type="text"
                             placeholder="Tu nombre"
-                            class="border p-3 w-full rounded-lg">
+                            class="border p-3 w-full rounded-lg @error('name')
+                                border-red-500"    
+                            @enderror
+                            value="{{old('name')}}">
                 </div>
                 @error('name')
-                <p class="bg-red-500 text-white font-bold text-center uppercase rounded-md p-2 my-2 text-sm "> {{$message}} </p>
+                <p class="bg-red-500 text-white font-bold text-center uppercase rounded-md p-2 mb-4 text-sm "> {{$message}} </p>
                 @enderror
-                <div class="mb-5">
+
+                <div class="mb-2">
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
                         usuario
                     </label>
@@ -34,9 +40,16 @@
                             name="username"
                             type="text"
                             placeholder="Tu usuario"
-                            class="border p-3 w-full rounded-lg">
+                            class="border p-3 w-full rounded-lg @error('username')
+                                border-red-500"    
+                            @enderror
+                            value="{{old('username')}}">
                 </div>
-                <div class="mb-5">
+                @error('username')
+                <p class="bg-red-500 text-white font-bold text-center uppercase rounded-md p-2 mb-4 text-sm "> {{$message}} </p>
+                @enderror
+
+                <div class="mb-2">
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
                         email
                     </label>
@@ -44,9 +57,16 @@
                             name="email"
                             type="text"
                             placeholder="Tu email"
-                            class="border p-3 w-full rounded-lg">
+                            class="border p-3 w-full rounded-lg @error('email')
+                                border-red-500"
+                            @enderror
+                            value="{{old('email')}}">
                 </div>
-                <div class="mb-5">
+                @error('email')
+                    <p class="bg-red-500 text-white font-bold text-center uppercase rounded-md p-2 mb-4 text-sm">{{$message}}</p>
+                @enderror
+
+                <div class="mb-2">
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
                         contraseña
                     </label>
@@ -54,9 +74,17 @@
                             name="password"
                             type="text"
                             placeholder="Tu contraseña"
-                            class="border p-3 w-full rounded-lg">
+                            class="border p-3 w-full rounded-lg @error('password')
+                                border-red-500
+                            @enderror"
+                            value="{{old('password')}}">
                 </div>
-                <div class="mb-5">
+                @error('password')
+                    <p class="bg-red-500 text-white font-bold text-center uppercase rounded-md p-2 mb-4 text-sm">{{$message}}</p>
+                @enderror
+
+
+                <div class="mb-2">
                     <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
                         repetir contraseña
                     </label>
@@ -64,12 +92,18 @@
                             name="password_confirmation"
                             type="text"
                             placeholder="Repite tu contraseña"
-                            class="border p-3 w-full rounded-lg">
+                            class="border p-3 w-full rounded-lg @error('password_confirmation')
+                                border-red-500
+                            @enderror"
+                            value="{{old('password_confirmation')}}">
                 </div>
+                @error('password_confirmation')
+                    <p class="bg-red-500 text-white font-bold text-center uppercase rounded-md p-2 mb-2 text-sm">{{$message}}</p>
+                @enderror
 
                 <input type="submit"
                         value="Crear Cuenta"
-                        class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
+                        class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 mt-3 text-white rounded-lg">
             </form>
         </div>
     </div>
