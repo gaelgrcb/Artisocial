@@ -72,7 +72,7 @@
                     </label>
                     <input id="password"
                             name="password"
-                            type="text"
+                            type="password"
                             placeholder="Tu contraseña"
                             class="border p-3 w-full rounded-lg @error('password')
                                 border-red-500
@@ -90,7 +90,7 @@
                     </label>
                     <input id="password_confirmation"
                             name="password_confirmation"
-                            type="text"
+                            type="password"
                             placeholder="Repite tu contraseña"
                             class="border p-3 w-full rounded-lg @error('password_confirmation')
                                 border-red-500
