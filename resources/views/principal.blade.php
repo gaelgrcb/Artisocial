@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Artisocial
+    Pagina Principal
 @endsection
 
 @section('contenido')
-
+    
 @endsection
